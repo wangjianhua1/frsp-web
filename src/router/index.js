@@ -1,25 +1,21 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Login from '../views/Login'
-import NotFound from '../views/404'
-import Main from '../views/Main'
 import iview from 'iview' // 引入iview依赖
-
 
 Vue.use(VueRouter)
 let routes = [
   {
     path: '/login',
-    component: Login,
+    component: () => import('../views/Login'), //懒加载
     name: '登陆页面',
     hidden: true
   },
   {
     path: '/',
-    component: Main,
+    component: () => import('@/views/Main'),
     name: '后台主页',
     children: [
-      {path: '/404', component: NotFound},
+      {path: '/404', component: () => import('../views/404')},
     ]
   },
 ];

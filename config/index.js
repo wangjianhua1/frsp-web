@@ -13,7 +13,7 @@ module.exports = {
     //使用代理方式
     proxyTable: {
       '/api':{
-        target: 'http://localhost:8080/',//本地后端
+        target: 'http://127.0.0.1:8080/',//本地后端
         changeOrigin: true,
         secure: false,  // 如果是https接口，需要配置这个参数true
         pathRewrite: {
